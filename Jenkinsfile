@@ -1,5 +1,5 @@
 pipeline {
-    agent { node { label 'local-test' } }
+    agent { node { label 'prueba_test' } }
 
     stages {
         stage('Build') {
@@ -11,8 +11,8 @@ pipeline {
             steps {
                 echo 'testing..'
             snykSecurity(
-          snykInstallation: 'snyk_security',
-          snykTokenId: 'andrespuerto1993',
+          snykInstallation: 'prueba_snyk',
+          snykTokenId: 'token_snyk',
         )
             }
         }
