@@ -2,12 +2,23 @@ pipeline {
     agent { node { label 'prueba_test' } }
 
     stages {
-        stage('Build') {
+        stage('Install') {
             steps {
-                sh "python3 --version"
+                sh "npm -v"
+                sh "npm install"
             }
         }
-        stage('Test') {
+        stage('Test'){
+             steps {
+                   sh "npm run test"
+                  }
+               }
+        stage('Build'){
+            steps {
+                sh "npm run build"
+            }
+        }
+        stage('Security_test') {
             steps {
                 echo 'testing..'
             snykSecurity(
