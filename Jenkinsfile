@@ -4,18 +4,18 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh "npm -v"
-                sh "npm install"
+                bat "start /B npm -v"
+                bat "start /B npm install"
             }
         }
         stage('Test'){
              steps {
-                   sh "npm run test"
+                   bat "start /B npm run test"
                   }
                }
         stage('Build'){
             steps {
-                sh "npm run build"
+                bat "start /B npm run build"
             }
         }
         stage('Security_test') {
